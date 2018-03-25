@@ -7,7 +7,7 @@ body {
 iframe{
     text-align:center;
 }
-#nav-shift {
+.body-container {
   padding-left: 250px;
 }
 
@@ -27,7 +27,8 @@ iframe{
     margin:auto;
 }
 
-#sidebar {
+.sidebar {
+  z-index:10;
   position: fixed;
   left: 250px;
   width: 0;
@@ -37,7 +38,8 @@ iframe{
   background: #000;
 }
 
-#content{
+.container-fluid{
+  z-index:1;
   width: 100%;
   padding: 15px;
   font-style:normal;
@@ -67,7 +69,7 @@ h2,h3,h4{
 }
 /* Sidebar Styles */
 
-.sidebar-texts {
+.navbar-nav {
   position: absolute;
   top: 0;
   width: 250px;
@@ -76,40 +78,37 @@ h2,h3,h4{
   list-style: none;
 }
 
-.sidebar-texts li {
+.navbar-nav li {
   text-indent: 20px;
   line-height: 40px;
 }
 
-.sidebar-texts li a {
+.navbar-nav li a {
   display: block;
   text-decoration: none;
   color: rgb(255,255,255);
 }
 .effect-list{
 }
-.sidebar-texts li a:hover {
+.navbar-nav li a:hover {
   background: rgba(250, 250, 250, 0.2);
 }
 
-.sidebar-texts li a:active, .sidebar-texts li a:focus {
+.navbar-nav li a:active, .navbar-nav li a:focus {
   text-decoration: none;
 }
 
-.sidebar-texts>.sidebar-main {
+.navbar-nav>.sidebar-main {
   height: 65px;
   font-size: 18px;
   line-height: 60px;
 }
 
-#sidebar {
-width: 0;
-}
-#nav-shift #sidebar {
+.body-container .sidebar {
 width: 250px;
 }
 
-#nav-shift #page-content-wrapper {
+.body-container #page-content-wrapper {
 position: relative;
 margin-right: 0;
 }
@@ -141,20 +140,20 @@ table {
     iframe{
         text-align:center;
     }
-    .sidebar-texts li a:hover {
+    .navbar-nav li a:hover {
         background: rgba(250, 250, 250, 0.2);
     }
 
-    .sidebar-texts li a:active, .sidebar-texts li a:focus {
+    .navbar-nav li a:active, .navbar-nav li a:focus {
       text-decoration: none;
     }
-    .sidebar-texts li {
+    .navbar-nav li {
         display:inline;  
         text-decoration: none;
-
     }
-    #sidebar {
+    .sidebar {
         position:fixed;
+        z-index:900;
         width:100%;
         top:0;
         text-align:justify !important;
@@ -165,25 +164,25 @@ table {
         text-decoration: none;
         font-size:1.25em;
     }
-    .sidebar-texts>.sidebar-main {
+    .navbar-nav>.sidebar-main {
         height: 100px;
         font-size: 18px;
         line-height: 1.5em;
     }
-    .sidebar-texts {
+    .navbar-nav {
       margin: 0;
       padding: 0;
       padding-top:1.01em;
-      
+      display:inline !important;
       list-style: none;
     }
 
-    .sidebar-texts li {
+    .navbar-nav li {
       text-indent: 20px;
       line-height: 40px;
     }
 
-    .sidebar-texts li a {
+    .navbar-nav li a {
       text-decoration: none;
       color:white;
     }
@@ -191,13 +190,14 @@ table {
     text-align:center;
         margin:auto;
     }
-    #content{
+    .container-fluid{
+        z-index:0;
         margin-top:75px;
         margin-left:5%;
         margin-right: 5%;
     }
     
-    .sidebar-texts{
+    .navbar-nav{
         width:100%;
         margin-left:5%;
         margin-right:5%;
@@ -220,26 +220,23 @@ table {
     }
     #main-content{
         padding-top:0px;
-        margin-top:0px;
+        margin-top:-30px;
     }
     h3{
     }
     .center-align{
     text-align:center
 }
-    #main-content{
-        margin-top:-30px;
-    }
 }
 
 
 @media only screen and (max-width: 600px) and (min-width:375px){
 
-    .sidebar-texts{
+    .navbar-nav{
         padding:0px;
     }
     .sidebar{
-        position:relative !important;
+        z-index:999;
         display:inline;
         margin-top:0px;
     }
@@ -268,10 +265,11 @@ table {
     dt{
         line-height:1.75em;
     }
-    .sidebar-texts li a{
-        font-size:.75em;
+    .navbar-nav li a{
+        font-size:.70em;
     }
-    #content{
+    .container-fluid{
+        z-index:1;
         margin-top:55px;
         margin-left:5%;
         margin-right: 5%;
@@ -287,6 +285,12 @@ table {
     }
     table td{
         padding:5px;
+    }
+    .container-fluid h1{
+        font-size:1.5rem;
+    }
+    .container-fluid h3{
+        font-size:1.25rem;
     }
 }
 
